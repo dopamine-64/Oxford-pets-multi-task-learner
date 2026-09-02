@@ -7,7 +7,7 @@ jointly to:
 2. **Classify** the breed (37 classes, cats and dogs) from the same shared encoder
 
 ## Dataset
-[Oxford-IIIT Pet Dataset](https://www.robots.ox.ac.uk/~vgg/data/pets/) — ~7,400 images 
+[Oxford-IIIT Pet Dataset](https://www.robots.ox.ac.uk/~vgg/data/pets/) — 7,400 images 
 across 37 breeds, with pixel-level trimap annotations.
 
 ## Architecture
@@ -47,16 +47,19 @@ percentage points to 22-25 points.
 - `main.ipynb` — complete pipeline: data download/preprocessing, model definitions 
   (U-Net, Attention U-Net, classifier head), training loop with checkpointing, 
   evaluation, and all required visualizations
-- `checkpoints/` — trained model weights
+  
+## Drive structure
+- `cache` — downloaded dataset (images.tar.gz and annotations.tar.gz)
+- `checkpoints` — trained model weights
 
 ## Setup
 Designed for Google Colab with a mounted Google Drive for checkpoint persistence 
 and dataset caching. Run all cells top to bottom to reproduce from scratch or 
-skip the training cells and load the provided checkpoints directly from the checkpoints folder.
+skip the training cells and load the checkpoints directly from this drive link: https://drive.google.com/drive/folders/1UcJcaB0Axg5zy697m3hxmyhOER7ivpj2?usp=sharing
 
 ## Notes
 - Trimap boundary pixels are folded into the foreground class, reducing the 
   3-class trimap to a binary segmentation problem per the assignment spec.
 - Train/val/test split is stratified by breed with a fixed seed for 
   full reproducibility.
-- Checkpoint files are added in the checkpoints folder or you can run `main.ipynb` to get them.
+- You can get the checkpoint files in checkpoints folder or you can run `main.ipynb` to get them.
